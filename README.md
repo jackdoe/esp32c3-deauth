@@ -22,9 +22,9 @@ AR=~/Library/Arduino15/packages/esp32//tools/esp-rv32/2405/bin/riscv32-esp-elf-a
 OBJDUMP=~/Library/Arduino15/packages/esp32/tools/esp-rv32/2405/bin/riscv32-esp-elf-objdump
 ```
 
-copy `libnet80211.a` to `libnet80211.a.bak` and then you can do `mkdir /tmp/extracted && cd /tmp/extracted && $AR x ../libnet80211.a` so that you can open ieee80211_output.o with imnhex and find `ieee80211_raw_frame_sanity_check` (use `$OBJDUMP -D ieee80211_output.o` to find the proper offset) and fix the function to always return 0, then use `$AR rvs libnet80211.a ieee80211_output.o` to replace the old object file with the new one. Or you can try and patch the .a file directly.
+copy `libnet80211.a` to `libnet80211.a.bak` and then you can do copy the .a file in some temporary directory and `$AR x ../libnet80211.a` then open ieee80211_output.o with imnhex, you need to find where the function`ieee80211_raw_frame_sanity_check` is using `$OBJDUMP -D ieee80211_output.o` and patch the function to always return 0, then use `$AR rvs libnet80211.a ieee80211_output.o` to replace the old object file with the new one. Or you can try and patch the .a file directly.
 
-Another easier way is to just overwrite the function in our code:
+An easier way is to just overwrite the function in our code:
 
 ```
 extern "C" int ieee80211_raw_frame_sanity_check(int32_t arg, int32_t arg2, int32_t arg3){
