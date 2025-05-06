@@ -12,6 +12,8 @@ Super cool device with joystick + esp32c3 + display + battery to prank my family
 
 ---
 
+# raw frame check fix
+
 Espressif added a function `ieee80211_raw_frame_sanity_check` which forbids you to send deauth packets (packets with frame subtype `0xC0`). There are multiple ways to go around this, one is to actually monkeypatch `libnet80211.a`, to do that first you need to extract `ieee80211_output.o`, form it, so find out where the `.a` file is, for arduino ide on mac is at:
 
 ```
