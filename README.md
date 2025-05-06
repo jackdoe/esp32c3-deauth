@@ -7,7 +7,6 @@ Super cool device with joystick + esp32c3 + display + battery to prank my family
 
 ![](images/z.jpg)
 ![](images/w.jpg)
-![](images/x.jpg)
 ![](images/y.jpg)
 ![](images/b.jpg)
 
