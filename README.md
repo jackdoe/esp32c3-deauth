@@ -5,10 +5,10 @@
 
 Super cool device with joystick + esp32c3 + display + battery to prank my family and friends. You just select SSID and press button and it sends broadcast deauth packets which disconnect all devices from that SSID.
 
+![](images/y.jpg)
 ![](images/b.jpg)
 ![](images/z.jpg)
 ![](images/w.jpg)
-![](images/y.jpg)
 
 ---
 
